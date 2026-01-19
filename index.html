@@ -20,7 +20,6 @@
             --text-muted: #9ca3af;
             --primary: #818cf8;
             --accent: #2dd4bf; 
-            --gradient: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #2dd4bf 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,24 +39,72 @@
         .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: color 0.3s; }
         .nav-links a:hover { color: var(--text-main); }
 
-        /* Minimal Hero Section */
-        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 10%; max-width: 1200px; margin: 0 auto; }
+        /* HERO SECTION (Clean & Simple) */
+        .hero { 
+            min-height: 70vh; /* Reduced height to keep it tighter */
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: flex-start; 
+            padding: 0 10%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
         
-        h1 { font-family: 'Outfit', sans-serif; font-size: clamp(3.5rem, 6vw, 6rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.03em; color: var(--text-main); }
-        
-        .role-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--accent); }
-        .role-list span::after { content: "•"; margin-left: 1rem; color: var(--text-muted); opacity: 0.5; }
-        .role-list span:last-child::after { content: ""; }
+        /* Name Style */
+        h1 { 
+            font-family: 'Outfit', sans-serif; 
+            font-size: clamp(3rem, 5vw, 5rem); 
+            font-weight: 800; 
+            line-height: 1.1; 
+            margin-bottom: 1.5rem; 
+            color: var(--text-main); 
+        }
 
+        /* Role List Style */
+        .roles {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .roles span {
+            display: flex;
+            align-items: center;
+        }
+
+        /* The bullets between roles */
+        .roles span:not(:last-child)::after {
+            content: "•";
+            margin-left: 1.5rem;
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        /* Buttons */
         .contact-row { display: flex; flex-wrap: wrap; gap: 1rem; }
-        .btn-link { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-main); padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+        .btn-link { 
+            display: inline-flex; align-items: center; gap: 0.5rem; 
+            background: rgba(255,255,255,0.05); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            color: var(--text-main); 
+            padding: 0.75rem 2rem; 
+            border-radius: 8px; 
+            font-weight: 500; 
+            text-decoration: none; 
+            transition: all 0.2s; 
+        }
         .btn-link:hover { background: rgba(255,255,255,0.1); border-color: var(--primary); transform: translateY(-2px); }
         .btn-primary { background: var(--text-main); color: var(--bg-dark); border-color: var(--text-main); font-weight: 600; }
         .btn-primary:hover { background: #e5e7eb; }
 
         /* Projects Grid */
-        .projects-section { padding: 6rem 10%; max-width: 1400px; margin: 0 auto; }
-        .section-title { font-family: 'Outfit', sans-serif; font-size: 2.5rem; margin-bottom: 3rem; }
+        .projects-section { padding: 4rem 10%; max-width: 1400px; margin: 0 auto; }
+        .section-title { font-family: 'Outfit', sans-serif; font-size: 2rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; display: inline-block; }
         .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: minmax(300px, auto); gap: 1.5rem; }
         .card { background: var(--bg-card); border-radius: 16px; padding: 2rem; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { transform: translateY(-5px); border-color: rgba(129, 140, 248, 0.3); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5); }
@@ -66,7 +113,7 @@
         
         .col-span-8 { grid-column: span 8; } .col-span-4 { grid-column: span 4; } .col-span-5 { grid-column: span 5; } .col-span-7 { grid-column: span 7; }
         @media (max-width: 1024px) { .col-span-8, .col-span-7, .col-span-5, .col-span-4 { grid-column: span 6; } }
-        @media (max-width: 768px) { .col-span-8, .col-span-7, .col-span-5, .col-span-4, .col-span-6 { grid-column: span 12; } }
+        @media (max-width: 768px) { .col-span-8, .col-span-7, .col-span-5, .col-span-4, .col-span-6 { grid-column: span 12; } .hero h1 { font-size: 3rem; } .roles span::after { content: ""; display: none;} .roles { flex-direction: column; gap: 0.5rem; } }
 
         .project-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
         .card h3 { font-family: 'Outfit', sans-serif; font-size: 1.75rem; margin-bottom: 1rem; line-height: 1.2; }
@@ -112,9 +159,10 @@
     </nav>
 
     <header class="hero">
+        
         <h1>Dina Elkholy</h1>
         
-        <div class="role-list">
+        <div class="roles">
             <span>ML Engineer</span>
             <span>Researcher</span>
             <span>AI Engineer</span>
@@ -125,11 +173,9 @@
             <a href="mailto:d.elkholy.14@gmail.com" class="btn-link btn-primary">
                 Email Me
             </a>
-            
             <a href="https://linkedin.com/in/dina-elkholy14" target="_blank" class="btn-link">
                 LinkedIn
             </a>
-            
             <a href="https://github.com/dina-adel" target="_blank" class="btn-link">
                 GitHub
             </a>

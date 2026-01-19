@@ -4,330 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dina Elkholy | ML Engineer</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
+        /* =========================================
+           DESIGN SETTINGS (ADVANCED)
+           Only touch this if you want to change colors.
+           ========================================= */
         :root {
-            --bg-dark: #030712;
-            --bg-card: #111827;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-            --primary: #818cf8; /* Indigo */
-            --accent: #2dd4bf;  /* Teal */
+            --bg-dark: #030712;      /* Main background color (Very dark blue) */
+            --bg-card: #111827;      /* Card background color */
+            --text-main: #f9fafb;    /* Main text color (White) */
+            --text-muted: #9ca3af;   /* Secondary text color (Grey) */
+            --primary: #818cf8;      /* Primary Accent (Indigo) */
+            --accent: #2dd4bf;       /* Secondary Accent (Teal) */
             --gradient: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #2dd4bf 100%);
         }
 
+        /* --- LAYOUT CODE (DO NOT TOUCH BELOW HERE) --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* --- Animated Background --- */
-        .ambient-light {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            overflow: hidden;
-            z-index: -1;
-            background: var(--bg-dark);
-        }
-        
-        .blob {
-            position: absolute;
-            filter: blur(80px);
-            opacity: 0.4;
-            animation: float 10s infinite ease-in-out;
-        }
-        
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+        .ambient-light { position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: var(--bg-dark); }
+        .blob { position: absolute; filter: blur(80px); opacity: 0.4; animation: float 10s infinite ease-in-out; }
         .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #4f46e5; border-radius: 40% 60% 70% 30%; }
         .blob-2 { bottom: -10%; right: -10%; width: 50vw; height: 50vw; background: #0d9488; border-radius: 60% 40% 30% 70%; animation-delay: -5s; }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(30px, 20px) rotate(10deg); }
-        }
-
-        /* --- Navigation --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            backdrop-filter: blur(12px);
-            background: rgba(3, 7, 18, 0.6);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .logo {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
+        @keyframes float { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(30px, 20px) rotate(10deg); } }
+        
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; backdrop-filter: blur(12px); background: rgba(3, 7, 18, 0.6); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: color 0.3s; }
         .nav-links a:hover { color: var(--text-main); }
-        
-        .btn-outline {
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            margin-left: 2rem;
-            transition: all 0.3s;
-        }
-        
-        .btn-outline:hover {
-            border-color: var(--primary);
-            background: rgba(129, 140, 248, 0.1);
-            color: var(--primary);
-        }
+        .btn-outline { border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 8px; margin-left: 2rem; transition: all 0.3s; text-decoration: none; color: white;}
+        .btn-outline:hover { border-color: var(--primary); background: rgba(129, 140, 248, 0.1); color: var(--primary); }
 
-        /* --- Hero Section --- */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0 10%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(45, 212, 191, 0.1);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(45, 212, 191, 0.2);
-        }
-
-        .pulse {
-            width: 8px; height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.7);
-            animation: pulse-animation 2s infinite;
-        }
-
-        @keyframes pulse-animation {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(45, 212, 191, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 212, 191, 0); }
-        }
-
-        h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(3rem, 5vw, 5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
-        }
-
-        .gradient-text {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 3rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--text-main);
-            color: var(--bg-dark);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.2s;
-        }
-        
+        /* Hero */
+        .hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 10%; max-width: 1200px; margin: 0 auto; }
+        .status-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(45, 212, 191, 0.1); color: var(--accent); padding: 0.5rem 1rem; border-radius: 50px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; margin-bottom: 1.5rem; border: 1px solid rgba(45, 212, 191, 0.2); }
+        .pulse { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.7); animation: pulse-animation 2s infinite; }
+        @keyframes pulse-animation { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(45, 212, 191, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 212, 191, 0); } }
+        h1 { font-family: 'Outfit', sans-serif; font-size: clamp(3rem, 5vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+        .gradient-text { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; }
+        .hero-actions { display: flex; gap: 1rem; }
+        .btn-primary { background: var(--text-main); color: var(--bg-dark); padding: 1rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform 0.2s; }
         .btn-primary:hover { transform: translateY(-2px); }
-
-        .btn-glass {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            color: var(--text-main);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.2s;
-        }
-        
+        .btn-glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); color: var(--text-main); padding: 1rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s; }
         .btn-glass:hover { background: rgba(255,255,255,0.1); }
 
-        /* --- Stats Bar --- */
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            width: 100%;
-            margin-top: 4rem;
-            padding: 2rem;
-            background: rgba(255,255,255,0.03);
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
+        /* Stats */
+        .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; width: 100%; margin-top: 4rem; padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+        .stat-item h3 { font-family: 'Outfit', sans-serif; font-size: 2rem; color: var(--text-main); }
+        .stat-item p { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--primary); margin: 0; }
 
-        .stat-item h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2rem;
-            color: var(--text-main);
-        }
-        
-        .stat-item p {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--primary);
-            margin: 0;
-        }
-
-        /* --- Bento Grid Projects --- */
-        .projects-section {
-            padding: 6rem 10%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-auto-rows: minmax(300px, auto);
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(129, 140, 248, 0.3);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-        }
+        /* Projects Grid */
+        .projects-section { padding: 6rem 10%; max-width: 1400px; margin: 0 auto; }
+        .section-title { font-family: 'Outfit', sans-serif; font-size: 2.5rem; margin-bottom: 3rem; }
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: minmax(300px, auto); gap: 1.5rem; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 2rem; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+        .card:hover { transform: translateY(-5px); border-color: rgba(129, 140, 248, 0.3); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5); }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%); opacity: 0; transition: opacity 0.5s; pointer-events: none; }
         .card:hover::before { opacity: 1; }
+        
+        /* Column Spans (Edit these classes on the cards to change size) */
+        .col-span-12 { grid-column: span 12; } /* Full width */
+        .col-span-8 { grid-column: span 8; }   /* 2/3 width */
+        .col-span-6 { grid-column: span 6; }   /* Half width */
+        .col-span-5 { grid-column: span 5; }   /* A bit less than half */
+        .col-span-4 { grid-column: span 4; }   /* 1/3 width */
+        
+        @media (max-width: 1024px) { .col-span-8, .col-span-7, .col-span-5, .col-span-4 { grid-column: span 6; } }
+        @media (max-width: 768px) { .col-span-8, .col-span-7, .col-span-5, .col-span-4, .col-span-6 { grid-column: span 12; } .hero h1 { font-size: 2.5rem; } .about-container { grid-template-columns: 1fr; gap: 3rem; } }
 
-        /* Grid Spans */
-        .col-span-12 { grid-column: span 12; }
-        .col-span-8 { grid-column: span 8; }
-        .col-span-7 { grid-column: span 7; }
-        .col-span-5 { grid-column: span 5; }
-        .col-span-4 { grid-column: span 4; }
+        .project-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .card h3 { font-family: 'Outfit', sans-serif; font-size: 1.75rem; margin-bottom: 1rem; line-height: 1.2; }
+        .card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem; }
+        .tech-stack { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto; }
+        .tech-pill { background: rgba(255,255,255,0.05); padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.8rem; color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
 
-        @media (max-width: 1024px) {
-            .col-span-8, .col-span-7, .col-span-5, .col-span-4 { grid-column: span 6; }
-        }
-        @media (max-width: 768px) {
-            .col-span-8, .col-span-7, .col-span-5, .col-span-4, .col-span-6 { grid-column: span 12; }
-            .hero h1 { font-size: 2.5rem; }
-        }
-
-        .project-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .card h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-top: auto;
-        }
-
-        .tech-pill {
-            background: rgba(255,255,255,0.05);
-            padding: 0.25rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 4rem 0;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
+        /* About Section */
+        .about-section { padding: 6rem 10%; background: rgba(17, 24, 39, 0.5); border-top: 1px solid rgba(255,255,255,0.05); }
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; }
+        .subsection-title { font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-main); }
+        .timeline { margin-top: 2rem; border-left: 2px solid rgba(255,255,255,0.1); padding-left: 2rem; }
+        .timeline-item { position: relative; margin-bottom: 2rem; }
+        .timeline-item::before { content: ''; position: absolute; left: -2.4rem; top: 0.5rem; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px rgba(3, 7, 18, 1); }
+        .timeline-date { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .timeline-content h4 { font-size: 1.1rem; color: var(--text-main); }
+        .timeline-content span { color: var(--text-muted); font-size: 0.95rem; }
+        .text-sm { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; opacity: 0.8; }
+        
+        /* Skills */
+        .skill-category { margin-bottom: 2rem; }
+        .skill-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .skill-tags span { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(--text-main); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; transition: all 0.2s; }
+        .skill-tags span:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        
+        footer { text-align: center; padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -339,6 +117,7 @@
 
     <nav>
         <div class="logo">DE.</div>
+        
         <div class="nav-links">
             <a href="#work">Work</a>
             <a href="#about">About</a>
@@ -351,13 +130,16 @@
             <div class="pulse"></div>
             Open for Work 
         </div>
+        
         <h1>
             Engineering Intelligence<br>
             <span class="gradient-text">From Research to Production</span>
         </h1>
+        
         <p>
             I'm <strong>Dina Elkholy</strong>. A Computer Science MSc candidate at UBC specializing in Computer Vision, Deep Learning, and optimizing large-scale AI systems.
         </p>
+        
         <div class="hero-actions">
             <a href="#work" class="btn-primary">View Projects</a>
             <a href="https://github.com/dina-adel" target="_blank" class="btn-glass">GitHub</a>
@@ -383,6 +165,7 @@
         <h2 class="section-title">Selected Works</h2>
         
         <div class="bento-grid">
+            
             <div class="card col-span-8">
                 <div class="project-tag">Research • Conference Paper</div>
                 <h3>Parameter-Efficient Fine-Tuning (PEFT)</h3>
@@ -396,7 +179,6 @@
                     <span class="tech-pill">Medical AI</span>
                 </div>
             </div>
-
             <div class="card col-span-4">
                 <div class="project-tag">Computer Vision</div>
                 <h3>Real-Time Recognition</h3>
@@ -409,7 +191,6 @@
                     <span class="tech-pill">Python</span>
                 </div>
             </div>
-
             <div class="card col-span-5">
                 <div class="project-tag">Production ML</div>
                 <h3>AI Video Dubbing</h3>
@@ -422,8 +203,7 @@
                     <span class="tech-pill">Wav2Lip</span>
                 </div>
             </div>
-
-             <div class="card col-span-7">
+            <div class="card col-span-7">
                 <div class="project-tag">Big Data & Distributed Systems</div>
                 <h3>Large-Scale Analytics with Spark</h3>
                 <p>
@@ -435,6 +215,79 @@
                     <span class="tech-pill">MLlib</span>
                 </div>
             </div>
+            </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-container">
+            
+            <div class="about-content">
+                <h2 class="section-title">About Me</h2>
+                <p>
+                    I am currently completing my <strong>Master of Science in Computer Science</strong> at the 
+                    University of British Columbia (Okanagan), graduating in March 2025.
+                </p>
+                <p>
+                    My research focuses on making Deep Learning models more efficient for medical imaging. 
+                    Beyond research, I have 4+ years of experience engineering scalable ML systems, from 
+                    optimizing computer vision pipelines to deploying real-time AWS solutions.
+                </p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023 - 2025</div>
+                        <div class="timeline-content">
+                            <h4>MSc in Computer Science</h4>
+                            <span>University of British Columbia</span>
+                            <p class="text-sm">Specialization: Computer Vision & Deep Learning</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2018 - 2022</div>
+                        <div class="timeline-content">
+                            <h4>BSc in Computer Science</h4>
+                            <span>Ain Shams University</span>
+                            <p class="text-sm">Graduated with Honors</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-content">
+                <h3 class="subsection-title">Technical Stack</h3>
+                
+                <div class="skill-category">
+                    <span class="skill-label">Languages</span>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>SQL</span>
+                        <span>C++</span>
+                        <span>Java</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <span class="skill-label">Machine Learning</span>
+                    <div class="skill-tags">
+                        <span>PyTorch</span>
+                        <span>TensorFlow</span>
+                        <span>Scikit-learn</span>
+                        <span>OpenCV</span>
+                        <span>HuggingFace</span>
+                        <span>Spark MLlib</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <span class="skill-label">MLOps & Cloud</span>
+                    <div class="skill-tags">
+                        <span>AWS</span>
+                        <span>Docker</span>
+                        <span>Git</span>
+                        <span>Linux</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -443,13 +296,11 @@
     </footer>
 
     <script>
-        // Simple script to make cards glow on hover based on mouse position
         document.querySelectorAll('.card').forEach(card => {
             card.onmousemove = e => {
                 const rect = card.getBoundingClientRect(),
                       x = e.clientX - rect.left,
                       y = e.clientY - rect.top;
-                
                 card.style.setProperty('--mouse-x', `${x}px`);
                 card.style.setProperty('--mouse-y', `${y}px`);
             }

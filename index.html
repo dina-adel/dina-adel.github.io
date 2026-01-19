@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dina Elkholy | ML Engineer</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <style>
         /* =========================================
@@ -19,46 +22,130 @@
             --text-main: #f9fafb;
             --text-muted: #9ca3af;
             --primary: #818cf8;
-            --accent: #2dd4bf; 
+            --accent: #2dd4bf;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
         /* Background Animation */
-        .ambient-light { position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: var(--bg-dark); }
-        .blob { position: absolute; filter: blur(80px); opacity: 0.4; animation: float 10s infinite ease-in-out; }
-        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #4f46e5; border-radius: 40% 60% 70% 30%; }
-        .blob-2 { bottom: -10%; right: -10%; width: 50vw; height: 50vw; background: #0d9488; border-radius: 60% 40% 30% 70%; animation-delay: -5s; }
-        @keyframes float { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(30px, 20px) rotate(10deg); } }
-        
+        .ambient-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            background: var(--bg-dark);
+        }
+
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: #4f46e5;
+            border-radius: 40% 60% 70% 30%;
+        }
+
+        .blob-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: #0d9488;
+            border-radius: 60% 40% 30% 70%;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(30px, 20px) rotate(10deg);
+            }
+        }
+
         /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; backdrop-filter: blur(12px); background: rgba(3, 7, 18, 0.6); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .logo { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--text-main); }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            backdrop-filter: blur(12px);
+            background: rgba(3, 7, 18, 0.6);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
 
         /* HERO SECTION */
-        .hero { 
+        .hero {
             min-height: 70vh;
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: flex-start; 
-            padding: 0 10%; 
-            max-width: 1200px; 
-            margin: 0 auto; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
+
         /* Name Style */
-        h1 { 
-            font-family: 'Outfit', sans-serif; 
-            font-size: clamp(3rem, 5vw, 5rem); 
-            font-weight: 800; 
-            line-height: 1.1; 
-            margin-bottom: 1.5rem; 
-            color: var(--text-main); 
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(3rem, 5vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
         }
 
         /* Role List Style (The dots) */
@@ -86,63 +173,320 @@
         }
 
         /* Buttons */
-        .contact-row { display: flex; flex-wrap: wrap; gap: 1rem; }
-        .btn-link { 
-            display: inline-flex; align-items: center; gap: 0.5rem; 
-            background: rgba(255,255,255,0.05); 
-            border: 1px solid rgba(255,255,255,0.1); 
-            color: var(--text-main); 
-            padding: 0.75rem 2rem; 
-            border-radius: 8px; 
-            font-weight: 500; 
-            text-decoration: none; 
-            transition: all 0.2s; 
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-        .btn-link:hover { background: rgba(255,255,255,0.1); border-color: var(--primary); transform: translateY(-2px); }
-        .btn-primary { background: var(--text-main); color: var(--bg-dark); border-color: var(--text-main); font-weight: 600; }
-        .btn-primary:hover { background: #e5e7eb; }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: var(--bg-dark);
+            border-color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: #e5e7eb;
+        }
 
         /* Projects Grid */
-        .projects-section { padding: 4rem 10%; max-width: 1400px; margin: 0 auto; }
-        .section-title { font-family: 'Outfit', sans-serif; font-size: 2rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; display: inline-block; }
-        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: minmax(300px, auto); gap: 1.5rem; }
-        .card { background: var(--bg-card); border-radius: 16px; padding: 2rem; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
-        .card:hover { transform: translateY(-5px); border-color: rgba(129, 140, 248, 0.3); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5); }
-        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%); opacity: 0; transition: opacity 0.5s; pointer-events: none; }
-        .card:hover::before { opacity: 1; }
-        
-        .col-span-8 { grid-column: span 8; } .col-span-4 { grid-column: span 4; } .col-span-5 { grid-column: span 5; } .col-span-7 { grid-column: span 7; }
-        @media (max-width: 1024px) { .col-span-8, .col-span-7, .col-span-5, .col-span-4 { grid-column: span 6; } }
-        @media (max-width: 768px) { .col-span-8, .col-span-7, .col-span-5, .col-span-4, .col-span-6 { grid-column: span 12; } .hero h1 { font-size: 3rem; } .roles span::after { content: ""; display: none;} .roles { flex-direction: column; gap: 0.5rem; } }
+        .projects-section {
+            padding: 4rem 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-        .project-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .card h3 { font-family: 'Outfit', sans-serif; font-size: 1.75rem; margin-bottom: 1rem; line-height: 1.2; }
-        .card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem; }
-        .tech-stack { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto; }
-        .tech-pill { background: rgba(255,255,255,0.05); padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.8rem; color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(300px, auto);
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(129, 140, 248, 0.3);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .col-span-8 {
+            grid-column: span 8;
+        }
+
+        .col-span-4 {
+            grid-column: span 4;
+        }
+
+        .col-span-5 {
+            grid-column: span 5;
+        }
+
+        .col-span-7 {
+            grid-column: span 7;
+        }
+
+        @media (max-width: 1024px) {
+
+            .col-span-8,
+            .col-span-7,
+            .col-span-5,
+            .col-span-4 {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .col-span-8,
+            .col-span-7,
+            .col-span-5,
+            .col-span-4,
+            .col-span-6 {
+                grid-column: span 12;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .roles span::after {
+                content: "";
+                display: none;
+            }
+
+            .roles {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        .project-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .tech-pill {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
         /* About Section */
-        .about-section { padding: 6rem 10%; background: rgba(17, 24, 39, 0.5); border-top: 1px solid rgba(255,255,255,0.05); }
-        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; }
-        @media (max-width: 768px) { .about-container { grid-template-columns: 1fr; gap: 3rem; } }
-        .subsection-title { font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-main); }
-        .timeline { margin-top: 2rem; border-left: 2px solid rgba(255,255,255,0.1); padding-left: 2rem; }
-        .timeline-item { position: relative; margin-bottom: 2rem; }
-        .timeline-item::before { content: ''; position: absolute; left: -2.4rem; top: 0.5rem; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px rgba(3, 7, 18, 1); }
-        .timeline-date { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--primary); margin-bottom: 0.5rem; }
-        .timeline-content h4 { font-size: 1.1rem; color: var(--text-main); }
-        .timeline-content span { color: var(--text-muted); font-size: 0.95rem; }
-        .text-sm { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; opacity: 0.8; }
-        
-        .skill-category { margin-bottom: 2rem; }
-        .skill-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-        .skill-tags span { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(--text-main); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; transition: all 0.2s; }
-        .skill-tags span:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
-        
-        footer { text-align: center; padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.9rem; }
+        .about-section {
+            padding: 6rem 10%;
+            background: rgba(17, 24, 39, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .subsection-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            margin-top: 2rem;
+            /* Spacing for the second list */
+        }
+
+        .subsection-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .timeline {
+            margin-top: 1rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(3, 7, 18, 1);
+        }
+
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .timeline-content span {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .text-sm {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            opacity: 0.8;
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tags span {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .skill-tags span:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="ambient-light">
@@ -153,25 +497,25 @@
     <nav>
         <div class="logo">DE.</div>
         <div class="nav-links">
-            <a href="#work">Work</a>
+            <a href="#projects">Projects</a>
             <a href="#about">About</a>
         </div>
     </nav>
 
     <header class="hero">
-        
+
         <h1>Dina Elkholy</h1>
-        
+
         <div class="roles">
-            <span>ML Engineer</span>
+            <span>ML/AI Engineer</span>
             <span>Researcher</span>
-            <span>AI Engineer</span>
             <span>Computer Vision</span>
+            <span>MLOps</span>
         </div>
 
         <div class="contact-row">
             <a href="mailto:d.elkholy.14@gmail.com" class="btn-link btn-primary">
-                Email Me
+                Contact Me
             </a>
             <a href="https://linkedin.com/in/dina-elkholy14" target="_blank" class="btn-link">
                 LinkedIn
@@ -182,16 +526,17 @@
         </div>
     </header>
 
-    <section id="work" class="projects-section">
-        <h2 class="section-title">Selected Works</h2>
-        
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">Selected Projects</h2>
+
         <div class="bento-grid">
-            
+
             <div class="card col-span-8">
                 <div class="project-tag">Research • Conference Paper</div>
                 <h3>Parameter-Efficient Fine-Tuning (PEFT)</h3>
                 <p>
-                    Engineered a fine-tuning pipeline for MedMAE using LoRA and IA³. Achieved 95-99% reduction in trainable parameters while maintaining comparable accuracy. Under review.
+                    Engineered a fine-tuning pipeline for MedMAE using LoRA and IA³. Achieved 95-99% reduction in
+                    trainable parameters while maintaining comparable accuracy. Under review.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-pill">PyTorch</span>
@@ -205,7 +550,8 @@
                 <div class="project-tag">Computer Vision</div>
                 <h3>Real-Time Recognition</h3>
                 <p>
-                    Optimized a jersey recognition pipeline using EfficientNet and ESRGAN, boosting accuracy to 87.78% in low-resolution scenarios.
+                    Optimized a jersey recognition pipeline using EfficientNet and ESRGAN, boosting accuracy to 87.78%
+                    in low-resolution scenarios.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-pill">OpenCV</span>
@@ -218,7 +564,8 @@
                 <div class="project-tag">Production ML</div>
                 <h3>AI Video Dubbing</h3>
                 <p>
-                    Deployed a scalable Wav2Lip system on AWS. Orchestrated Docker containers to achieve near-real-time lip-syncing performance.
+                    Deployed a scalable Wav2Lip system on AWS. Orchestrated Docker containers to achieve near-real-time
+                    lip-syncing performance.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-pill">AWS</span>
@@ -227,11 +574,12 @@
                 </div>
             </div>
 
-             <div class="card col-span-7">
+            <div class="card col-span-7">
                 <div class="project-tag">Big Data</div>
                 <h3>Large-Scale Analytics</h3>
                 <p>
-                    Built distributed pipelines for analyzing 16GB+ datasets (180k+ matches). Utilized Spark MLlib for scalable training across clusters.
+                    Built distributed pipelines for analyzing 16GB+ datasets (180k+ matches). Utilized Spark MLlib for
+                    scalable training across clusters.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-pill">PySpark</span>
@@ -248,17 +596,35 @@
             <div class="about-content">
                 <h2 class="section-title">About Me</h2>
                 <p>
-                    I am currently completing my <strong>Master of Science in Computer Science</strong> at the 
+                    I am currently completing my <strong>Master of Science in Computer Science</strong> at the
                     University of British Columbia (Okanagan), graduating in March 2025.
                 </p>
                 <p>
-                    My research focuses on making Deep Learning models more efficient for medical imaging. 
-                    Beyond research, I have 4+ years of experience engineering scalable ML systems.
+                    My research focuses on making Deep Learning models more efficient for medical imaging.
+                    Beyond research, I have 4+ years of experience developing scalable systems.
                 </p>
-
+                <h3 class="subsection-title">Experience</h3>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">2023 - 2025</div>
+                        <div class="timeline-date">Feb 2023 - Dec 2023</div>
+                        <div class="timeline-content">
+                            <h4>Machine Learning Software Engineer</h4>
+                            <span>RightsHero/Digisay Group</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Oct 2021 - Feb 2023</div>
+                        <div class="timeline-content">
+                            <h4>Junior Data Scientist</h4>
+                            <span>RightsHero/Digisay Group</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Education</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 2024 - Present</div>
                         <div class="timeline-content">
                             <h4>MSc in Computer Science</h4>
                             <span>University of British Columbia</span>
@@ -266,11 +632,10 @@
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">2018 - 2022</div>
+                        <div class="timeline-date">Sep 2016 - Sep 2021</div>
                         <div class="timeline-content">
-                            <h4>BSc in Computer Science</h4>
-                            <span>Ain Shams University</span>
-                            <p class="text-sm">Graduated with Honors</p>
+                            <h4>BSc in Communications and Information Engineering</h4>
+                            <span>University of Science and Technology at Zewail City</span>
                         </div>
                     </div>
                 </div>
@@ -278,7 +643,7 @@
 
             <div class="skills-content">
                 <h3 class="subsection-title">Technical Stack</h3>
-                
+
                 <div class="skill-category">
                     <span class="skill-label">Languages</span>
                     <div class="skill-tags">
@@ -322,12 +687,13 @@
         document.querySelectorAll('.card').forEach(card => {
             card.onmousemove = e => {
                 const rect = card.getBoundingClientRect(),
-                      x = e.clientX - rect.left,
-                      y = e.clientY - rect.top;
+                    x = e.clientX - rect.left,
+                    y = e.clientY - rect.top;
                 card.style.setProperty('--mouse-x', `${x}px`);
                 card.style.setProperty('--mouse-y', `${y}px`);
             }
         });
     </script>
 </body>
+
 </html>

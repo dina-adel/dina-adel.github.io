@@ -39,50 +39,41 @@
         .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: color 0.3s; }
         .nav-links a:hover { color: var(--text-main); }
 
-        /* HERO SECTION (Clean & Simple) */
+        /* HERO SECTION */
         .hero { 
-            min-height: 70vh; /* Reduced height to keep it tighter */
+            min-height: 80vh;
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: flex-start; 
             padding: 0 10%; 
-            max-width: 1200px; 
+            max-width: 1000px; /* Constrained width for better reading */
             margin: 0 auto; 
         }
         
-        /* Name Style */
         h1 { 
             font-family: 'Outfit', sans-serif; 
             font-size: clamp(3rem, 5vw, 5rem); 
             font-weight: 800; 
             line-height: 1.1; 
-            margin-bottom: 1.5rem; 
+            margin-bottom: 1rem; 
             color: var(--text-main); 
         }
 
-        /* Role List Style */
-        .roles {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
+        .hero-subtitle {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 500;
             color: var(--accent);
-            margin-bottom: 2.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .roles span {
-            display: flex;
-            align-items: center;
-        }
-
-        /* The bullets between roles */
-        .roles span:not(:last-child)::after {
-            content: "•";
-            margin-left: 1.5rem;
+        .hero-text {
+            font-size: 1.25rem;
             color: var(--text-muted);
-            opacity: 0.5;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
         }
 
         /* Buttons */
@@ -113,7 +104,7 @@
         
         .col-span-8 { grid-column: span 8; } .col-span-4 { grid-column: span 4; } .col-span-5 { grid-column: span 5; } .col-span-7 { grid-column: span 7; }
         @media (max-width: 1024px) { .col-span-8, .col-span-7, .col-span-5, .col-span-4 { grid-column: span 6; } }
-        @media (max-width: 768px) { .col-span-8, .col-span-7, .col-span-5, .col-span-4, .col-span-6 { grid-column: span 12; } .hero h1 { font-size: 3rem; } .roles span::after { content: ""; display: none;} .roles { flex-direction: column; gap: 0.5rem; } }
+        @media (max-width: 768px) { .col-span-8, .col-span-7, .col-span-5, .col-span-4, .col-span-6 { grid-column: span 12; } .hero h1 { font-size: 3rem; } }
 
         .project-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
         .card h3 { font-family: 'Outfit', sans-serif; font-size: 1.75rem; margin-bottom: 1rem; line-height: 1.2; }
@@ -160,14 +151,13 @@
 
     <header class="hero">
         
-        <h1>Dina Elkholy</h1>
+        <h1>Hi, I'm Dina Elkholy.</h1>
         
-        <div class="roles">
-            <span>ML Engineer</span>
-            <span>Researcher</span>
-            <span>AI Engineer</span>
-            <span>Computer Vision</span>
-        </div>
+        <h2 class="hero-subtitle">I am a Machine Learning Engineer & Researcher.</h2>
+
+        <p class="hero-text">
+            I specialize in Computer Vision and Deep Learning. Currently, I am completing my Master's at the University of British Columbia (UBC), where I focus on building efficient AI models and scalable production systems.
+        </p>
 
         <div class="contact-row">
             <a href="mailto:d.elkholy.14@gmail.com" class="btn-link btn-primary">
